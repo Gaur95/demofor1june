@@ -2,15 +2,15 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html
+    destination: /home/ubuntu/myapp
 
 hooks:
   BeforeInstall:
-    - location: scripts/script.sh
+    - location: scripts/clean.sh
       timeout: 300
       runas: ubuntu
 
-  # AfterInstall:
-  #   - location: scripts/build_and_run_docker.sh
-  #     timeout: 600
-  #     runas: ec2-user
+  AfterInstall:
+    - location: scripts/script.sh
+      timeout: 600
+      runas: ubuntu
