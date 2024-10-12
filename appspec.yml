@@ -1,0 +1,16 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/myapp
+
+hooks:
+  BeforeInstall:
+    - location: scripts/scripts.sh
+      timeout: 300
+      runas: ubuntu
+
+  # AfterInstall:
+  #   - location: scripts/build_and_run_docker.sh
+  #     timeout: 600
+  #     runas: ec2-user
